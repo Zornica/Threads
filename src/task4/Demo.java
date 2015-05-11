@@ -8,13 +8,18 @@ import java.util.concurrent.BlockingQueue;
  */
 public class Demo {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
 
-    BlockingQueue q = new ArrayBlockingQueue(10);
+    BlockingQueue<String> q = new ArrayBlockingQueue<String>(10);
     Object lock = new Object();
     ThreadAdd threadAdd = new ThreadAdd(q,lock);
     ThreadRemove threadRemove = new ThreadRemove(q,lock);
     threadAdd.start();
     threadRemove.start();
+    Thread.sleep(1000);
+    for(String obj:q){
+      System.out.println("element  "+obj);
+    }
+
   }
 }

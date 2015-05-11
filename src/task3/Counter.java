@@ -29,7 +29,7 @@ public class Counter extends Thread {
         try {
           lock.wait();
         } catch (InterruptedException e) {
-          System.out.println("Thread " + threadName + " interrupted.");
+          System.out.println("Threads " + threadName + " interrupted.");
           break;
         }
       }

@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Demo {
   public static void main(String[] args){
    Scanner sc= new Scanner(System.in);
-   SimpleThread t= new SimpleThread("Thread ");
+   SimpleThread t= new SimpleThread("Threads ");
     t.start();
      sc.next();
    t.interrupt();
