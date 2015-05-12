@@ -3,13 +3,14 @@ package task5;
 import java.util.Hashtable;
 
 /**
- * Created by Zornitsa Petkova on 5/11/15.
+ * Created by Zornitsa Petkova on 5/12/15.
  */
 public class TimeHashTable {
   Hashtable<String, Object> table = new Hashtable<String, Object>();
-
-  public TimeHashTable(Hashtable table) {
+  private int countTime;
+  public TimeHashTable(Hashtable<String,Object> table,int countTime) {
     this.table = table;
+    this.countTime = countTime;
   }
 
   public void put(String key, Object value) {
@@ -17,19 +18,18 @@ public class TimeHashTable {
   }
 
   public Object get(String key) {
-    if (table.containsKey(key)) {
+      countTime=0;
+      if (table.containsKey(key)) {
       return table.get(key);
-      new Thread(key,System.currentTimeMillis());
-    } else {
-      return null;
     }
+    return null;
   }
 
-  public void remove(String key) {
-    if(table.containsKey(key)){
-    table.remove(key);}
-    else{
-      System.out.println("There is not element with this key!");
+  public Object remove(String key) {
+    if (table.containsKey(key)) {
+      return table.remove(key);
     }
+    return null;
   }
+
 }
