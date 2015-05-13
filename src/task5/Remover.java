@@ -1,31 +1,31 @@
 package task5;
 
-import java.util.Hashtable;
-
 /**
  * Created by Zornitsa Petkova on 5/12/15.
  */
 public class Remover extends Thread {
-  private int countTime;
+  private int countTo;
  private String key;
-  Hashtable<String, Object> hasTable = new Hashtable<String, Object>();
-  TimeHashTable table = new TimeHashTable(hasTable,countTime);
 
-  public Remover(TimeHashTable table, String key) {
+  private TimeHashTable table;
+
+  public Remover(TimeHashTable table, String key, int countTo) {
     this.table = table;
     this.key = key;
+    this.countTo = countTo;
 
   }
 
   public void run(){
-    while(countTime != 3){
+
+   for(int i =0; i< countTo; i++){
       try {
         Thread.sleep(1000);
-        countTime ++;
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        return;
       }
     }
    table.remove(key);
-  }
+    System.out.println("Mahame " + key);
+}
 }
