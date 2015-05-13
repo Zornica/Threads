@@ -21,7 +21,7 @@ public class Demo {
     Thread.sleep(1000);
     System.out.println(" ");
 
-    table.get("1");
+    System.out.println(table.get("1"));
     System.out.println("Prezarejdame 1");
     System.out.println(" ");
 

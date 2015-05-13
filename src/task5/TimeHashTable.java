@@ -6,25 +6,22 @@ import java.util.Hashtable;
  * Created by Zornitsa Petkova on 5/12/15.
  */
 public class TimeHashTable {
-  Hashtable<String, Thread> table = new Hashtable<String, Thread>();
+  Hashtable<String, Value> table = new Hashtable<String,Value>();
   private int countTime;
   public TimeHashTable(int countTime) {
     this.countTime = countTime;
   }
 
-  public void put(String key) {
-    if (table.containsKey(key)) {
-      table.get(key).interrupt();
-    }
+  public void put(String key, Object value) {
     Thread thread = new Thread(new Remover(this,key,countTime));
-    table.put(key,thread);
+    table.put(key,new Value(value,thread));
     thread.start();
   }
 
   public Object get(String key) {
     if (table.containsKey(key)) {
-      put(key);
-      return table.get(key);
+      put(key,table.get(key).value);
+      return table.get(key).value;
     }
     return null;
   }
@@ -37,8 +34,8 @@ public class TimeHashTable {
   }
 
   public void close(){
-    for(Thread t : table.values())
-      t.interrupt();
+    for(Value t : table.values())
+      t.thread.interrupt();
   }
 
   public void print(){
