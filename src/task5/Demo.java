@@ -11,12 +11,12 @@ public class Demo {
   public static void main(String[] args)throws InterruptedException{
     TimeHashTable table = new TimeHashTable(3);
 
-    table.put("1");
+    table.put("1","Sisa");
     System.out.println("Slagame 1");
     Thread.sleep(1000);
     System.out.println(" ");
 
-    table.put("2");
+    table.put("2","Ivan");
     System.out.println("Slagame 2");
     Thread.sleep(1000);
     System.out.println(" ");
@@ -25,28 +25,25 @@ public class Demo {
     System.out.println("Prezarejdame 1");
     System.out.println(" ");
 
-    table.put("3");
+    table.put("3","Koko");
     System.out.println("Slagame 3");
     Thread.sleep(1000);
     System.out.println(" ");
 
-    table.put("4");
+    table.put("4","Stoqn");
     System.out.println("Slagame 4");
     Thread.sleep(1000);
     System.out.println(" ");
 
-    table.put("1");
-    System.out.println("Prezarejdame 1");
-    System.out.println(" ");
 
-    table.put("5");
+    table.put("5","Petyr");
     System.out.println("Slagame 5");
     Thread.sleep(1000);
     System.out.println(" ");
 
     table.close();
 
-    System.out.println("The elements in the hashtable are: ");
+    System.out.println("The elements in the hashTable are: ");
     table.print();
 
   }
