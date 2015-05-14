@@ -6,7 +6,8 @@ package task5;
 public class Value {
   public final Object value;
   public final Thread thread;
-  public Value(Object value,Thread thread){
+
+  public Value(Object value, Thread thread) {
     this.value = value;
     this.thread = thread;
   }

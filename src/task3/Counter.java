@@ -4,7 +4,7 @@ package task3;
  * Created by Zornitsa Petkova on 5/7/15.
  */
 public class Counter extends Thread {
- private static boolean t = true;
+
   private final Object lock;
   private String threadName;
   private int firstNumber;
@@ -22,7 +22,7 @@ public class Counter extends Thread {
       for (int i = firstNumber; i <= lastNumber; i++) {
         System.out.println(threadName + " -> " + i);
         lock.notify();
-        if (i==lastNumber || !t)
+        if (i==lastNumber)
         {
           break;
         }
@@ -33,7 +33,6 @@ public class Counter extends Thread {
           break;
         }
       }
-      t = false;
     }
   }
 }

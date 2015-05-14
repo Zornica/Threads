@@ -15,7 +15,7 @@ public class SimpleThread extends Thread {
       try {
         Thread.sleep(1000);
       } catch (InterruptedException e) {
-        System.out.println(name + " counts " +i);
+        System.out.println(name + " counts " + i);
         break;
       }
     }
