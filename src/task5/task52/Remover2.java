@@ -31,6 +31,4 @@ public class Remover2 extends Thread {
     System.out.println("Mahame " + key);
   }
 
-  {
-  }
 }
