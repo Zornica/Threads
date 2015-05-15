@@ -18,7 +18,6 @@ public class AddThread extends Thread {
       list.add(obj);
       list.printAllElement();
       System.out.println(" ");
-
     }
   }
 }

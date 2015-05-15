@@ -9,7 +9,7 @@ import java.util.Hashtable;
  * Created by Zornitsa Petkova on 5/14/15.
  */
 public class TimeOutHashTable {
-  Hashtable<String, Remover> table = new Hashtable<String, Remover>();
+  Hashtable<String, Remover2> table = new Hashtable<String, Remover2>();
   private int countTime;
 
 
@@ -18,7 +18,7 @@ public class TimeOutHashTable {
   }
 
   public void put(String key) {
-    Remover thread = new Remover(this, key, countTime);
+    Remover2 thread = new Remover2(this, key, countTime);
     table.put(key, thread);
     thread.start();
   }
@@ -39,7 +39,7 @@ public class TimeOutHashTable {
   }
 
   public void close() {
-    for (Remover t : table.values())
+    for (Remover2 t : table.values())
       t.interrupt();
   }
 

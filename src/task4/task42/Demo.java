@@ -8,11 +8,11 @@ public class Demo {
 
     Object[] arr = new Object[5];
     Objects list = new Objects(arr);
-    AddThread addThread = new AddThread(list, "Mima");
+    AddThread addThread = new AddThread(list, "10");
     RemoveThread removeThread = new RemoveThread(list);
     addThread.start();
 
-    Thread.sleep(100);
+    Thread.sleep(10);
 
     removeThread.start();
 

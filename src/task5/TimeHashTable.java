@@ -1,6 +1,5 @@
 package task5;
 
-import task5.task52.Remover2;
 
 import java.util.Hashtable;
 
@@ -12,20 +11,23 @@ public class TimeHashTable {
   private int countTime;
 
 
-
   public TimeHashTable(int countTime) {
     this.countTime = countTime;
   }
 
   public void put(String key, Object value) {
-    Thread thread = new Thread(new Remover2(this, key, countTime ));
+    if (table.containsKey(key)) {
+      table.get(key).thread.reset();
+      return;
+    }
+    Remover thread = new Remover(this, key, countTime);
     table.put(key, new Value(value, thread));
     thread.start();
   }
 
   public Object get(String key) {
     if (table.containsKey(key)) {
-      put(key, table.get(key).value);
+      put(key, table.get(key).thread.reset());
       return table.get(key).value;
     }
     return null;

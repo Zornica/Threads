@@ -31,6 +31,8 @@ public class Demo2 {
     Thread.sleep(1000);
     System.out.println(" ");
 
+   
+
 
     table.put("5");
     System.out.println("Slagame 5");

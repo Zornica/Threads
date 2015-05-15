@@ -11,9 +11,9 @@ public class Remover extends Thread {
   private String key;
 
 
-  private TimeOutHashTable table;
+  private TimeHashTable table;
 
-  public Remover(TimeOutHashTable table, String key, int countTo ) {
+  public Remover(TimeHashTable table, String key, int countTo ) {
     this.table = table;
     this.key = key;
     this.countTo = countTo;
@@ -31,7 +31,7 @@ public class Remover extends Thread {
     System.out.println("Mahame " + key);
   }
 
-public void reset (){
-  count=0;
+public Object reset(){
+  return count=0;
 }
 }

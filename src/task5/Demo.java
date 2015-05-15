@@ -22,7 +22,7 @@ public class Demo {
     System.out.println(" ");
 
     System.out.println("Prezarejdame 1");
-    System.out.println(table.get("1"));
+    table.get("1");
     System.out.println(" ");
 
     table.put("3","Koko");
@@ -33,6 +33,10 @@ public class Demo {
     table.put("4","Stoqn");
     System.out.println("Slagame 4");
     Thread.sleep(1000);
+    System.out.println(" ");
+
+    System.out.println("Prezarejdame 1");
+    table.put("1","Mima");
     System.out.println(" ");
 
 
