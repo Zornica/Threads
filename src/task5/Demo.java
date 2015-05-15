@@ -1,8 +1,6 @@
 package task5;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 
-import java.util.Hashtable;
 
 /**
  * Created by Zornitsa Petkova on 5/12/15.

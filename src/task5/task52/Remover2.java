@@ -30,8 +30,11 @@ public class Remover2 extends Thread {
     table.remove(key);
     System.out.println("Mahame " + key);
   }
+
  public void reset()
   {
     count=0;
   }
+
+
 }
