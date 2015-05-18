@@ -1,13 +1,14 @@
 package task5;
 
 
+
 import java.util.Hashtable;
 
 /**
  * Created by Zornitsa Petkova on 5/12/15.
  */
-public class TimeHashTable {
-  Hashtable<String, Value> table = new Hashtable<String, Value>();
+public class TimeHashTable<K,T> {
+  Hashtable<K,Value<K,T>> table = new Hashtable<K, Value<K,T>>();
   private int countTime;
 
 
@@ -15,25 +16,25 @@ public class TimeHashTable {
     this.countTime = countTime;
   }
 
-  public void put(String key, Object value) {
+  public void put(K key, T value) {
     if (table.containsKey(key)) {
-      table.get(key).thread.reset();
+      table.get(key).reset();
       return;
     }
-    Remover thread = new Remover(this, key, countTime);
-    table.put(key, new Value(value, thread));
+    Remover<K,T> thread = new Remover<K,T>(this, key, countTime);
+    table.put(key, new Value<K,T>(value, thread));
     thread.start();
   }
 
-  public Object get(String key) {
+  public T get(K key) {
     if (table.containsKey(key)) {
-      put(key, table.get(key).thread.reset());
+      put(key,(table.get(key).reset()));
       return table.get(key).value;
     }
     return null;
   }
 
-  public Object remove(String key) {
+  public Value<K,T> remove(K key) {
     if (table.containsKey(key)) {
       return table.remove(key);
     }
@@ -41,12 +42,12 @@ public class TimeHashTable {
   }
 
   public void close() {
-    for (Value t : table.values())
+    for (Value<K, T> t : table.values())
       t.thread.interrupt();
   }
 
   public void print() {
-    for (String key : table.keySet()) {
+    for (K key : table.keySet()) {
       System.out.print(key + " ");
     }
   }

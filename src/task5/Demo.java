@@ -7,7 +7,7 @@ package task5;
  */
 public class Demo {
   public static void main(String[] args) throws InterruptedException {
-    TimeHashTable table = new TimeHashTable(3);
+    TimeHashTable<String,Object> table = new TimeHashTable<String,Object>(3);
 
     table.put("1", "Sisa");
     System.out.println("Slagame 1");

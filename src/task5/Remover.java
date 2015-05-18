@@ -1,19 +1,17 @@
 package task5;
 
-import task5.task52.TimeOutHashTable;
-
 /**
  * Created by Zornitsa Petkova on 5/12/15.
  */
-public class Remover extends Thread {
+public class Remover <K,T>extends Thread {
   private int countTo;
-  private int count ;
-  private String key;
+  private int  count ;
+  private K key;
 
 
-  private TimeHashTable table;
+  private TimeHashTable<K,T> table;
 
-  public Remover(TimeHashTable table, String key, int countTo ) {
+  public Remover(TimeHashTable<K,T> table, K key, int countTo ) {
     this.table = table;
     this.key = key;
     this.countTo = countTo;
